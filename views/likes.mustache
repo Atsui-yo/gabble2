@@ -1,0 +1,23 @@
+<body>
+    <div class="navContainer">
+        <a href="#">Gabble</a>
+        <a href="#">Create new gab</a>
+        <a href="#">Logged in as {{username}}</a>
+        <a href="#">Log out</a>
+    </div>
+
+    <div class="likedContainer">
+        <h1>Who liked your post</h1>
+        {{#gabble2}}
+        <div class="message">
+            <p>{{username}} : {{message}}</p>
+            <p>Date</p>
+        </div>
+        <div class="Liked">
+            <h1>Liked by</h1>
+            {{username}}
+        </div>
+        {{/gabble2}}
+    </div>
+</body>
+</html>
