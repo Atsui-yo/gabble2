@@ -22,10 +22,9 @@ router.get('/homepage', (request, response) => {
     response.render('homepage')
 });
 
-
-// router.post('/gabble' (request, response) => {
-//     response.render('/login');
-// });
+router.post('/gabble' (request, response) => {
+    response.render('/login');
+});
 
 
 
