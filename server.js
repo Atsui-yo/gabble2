@@ -3,7 +3,8 @@ const mustacheExpress = require('mustache-express');
 const bodyParser = require('body-parser');
 const session = require('express-session')
 const expressValidator = require('express-validator');
-const gabbleControllers = require('./controllers/authentication');
+const authenController = require('./controllers/authentication');
+const homepageController = require('./controllers/homeController');
 
 const application = express();
 const port = 3000;
@@ -13,14 +14,14 @@ application.set('views', './views');
 application.set('view engine', 'mustache');
 
 application.use(session({
-    secret: 'sessionSecret',
+    secret: 'gabble',
     resave: false,
-    saveUninitialized: false,
+    saveUninitialized: true,
 }));
 
 application.use(function(request, response, next) {
-    if (request.session.isAuthenticated === undefined) {
-        request.session.isAuthenticated = false;
+    if (request.session.authenticatedUser === undefined) {
+        request.session.authenticatedUser = false;
     }
     next();
 });
@@ -30,6 +31,7 @@ application.use(express.static('public'));
 application.use(bodyParser.urlencoded({ extended: false }));
 application.use(expressValidator());
 
-application.use(gabbleControllers);
+application.use(authenController);
+application.use(homepageController);
 
 application.listen(port);

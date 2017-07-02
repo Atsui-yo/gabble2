@@ -1,11 +1,11 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
-  var likes = sequelize.define('likes', {
+  var Likes = sequelize.define('Likes', {
     active: { type: DataTypes.STRING, allowNull: false, defaultValue: false }
   });
-  likes.associate = function(models) {
-    likes.belongsTo(models.users, { foreignKey: 'id' });
-    likes.belongsTo(models.messages, { foreignKey: 'id' });
+  Likes.associate = function(models) {
+    Likes.belongsTo(models.Users, { foreignKey: 'id' });
+    Likes.belongsTo(models.Messages, { foreignKey: 'id' });
   }
-  return likes;
+  return Likes;
 };

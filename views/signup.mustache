@@ -7,21 +7,26 @@
 </head>
 <body>
     <div class="navContainer">
-        <a href="#">Gabble</a>
-        <a href="#">Create new gab</a>
-        <a href="#">Login</a>
-        <a href="#">Sign up</a>
+        <a href="/homepage">Gabble</a>
+        <a href="/newgab">Create new gab</a>
+        <a href="/login">Login</a>
+        <a href="/signup">Sign up</a>
     </div>
 
     <div>
-        <h1>Log in</h1>
+        <h1>Sign Up</h1>
 
         <div class="formContainer">
-            <form>
+            <form action="/signup" method="post">
+                <label>Name</label><br>
+                <input type="username" name="name"><br><br>
                 <label>Username</label><br>
-                <input type="username"><br>
+                <input type="username" name="username"><br><br>
                 <label>Password</label><br>
-                <input type="password"><br>
+                <input type="password" name="password"><br><br>
+                <label>Confirm Password</label><br>
+                <input type="password" name="confirmPass"><br><br>
+                <input type="submit" value="signup">
                 
             </form>
         </div>

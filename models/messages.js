@@ -1,14 +1,14 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
-  var messages = sequelize.define('messages', {
+  var Messages = sequelize.define('Messages', {
     content: { type: DataTypes.STRING, allowNull: false }
   });
 
-  messages.associate = function(models) {
-    messages.belongsTo(models.users, { foreignKey: 'userId' });
-    messages.hasMany(models.likes, { foreignKey: 'messageId' });
+  Messages.associate = function(models) {
+    Messages.belongsTo(models.Users, { foreignKey: 'UserId' });
+    Messages.hasMany(models.Likes, { foreignKey: 'MessageId' });
   }
 
-  return messages;
+  return Messages;
 };
 

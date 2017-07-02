@@ -10,6 +10,8 @@
   "author": "Andrew",
   "license": "ISC",
   "dependencies": {
+    "async": "^2.5.0",
+    "await": "^0.2.6",
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
     "express-session": "^1.15.3",
