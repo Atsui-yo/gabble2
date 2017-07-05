@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const async = require('async')
 const models = require('../models');
 
 // var request.session.authenticatedUser = true;
@@ -24,27 +25,26 @@ router.get('/login', (request, response) => {
     }
 });
 
-router.post('/login', (request, response) => {
+router.post('/login', async (request, response) => {
 
     var username = request.body.username;
     var password = request.body.password;
 
     var validationErrors = [];
     
-
-    var registeredUser = models.Users.findOne({
+    var registeredUser = await (models.Users.findOne({
         where: { username: username, password: password }
-    });
+    }));
 
     if (!registeredUser) {
 
          validationErrors.push({"message": "Your username and password is invalid."});
-        response.render('login', {errors: validationErrors});
+         return response.response('/login', {errors: validationErrors});
     } 
     else {
         request.session.authenticatedUser = true;
         request.session.username = request.body.username;
-        response.redirect('/gabble2');
+        response.redirect('/homepage');
     }
     
 });
@@ -59,7 +59,7 @@ router.get('/signup', (request, response) => {
 
 });
 
-router.post('/signup', (request, response) => {
+router.post('/signup', async (request, response) => {
     
     var name = request.body.name;
     var username = request.body.username;
@@ -67,14 +67,13 @@ router.post('/signup', (request, response) => {
 
     var validationErrors = [];
     
-
     request.checkBody('name', 'Enter a name to display.').notEmpty();
     request.checkBody('username', 'Enter a username.').notEmpty();
     request.checkBody('password', 'Enter a password.').notEmpty();
     request.checkBody('confirmPass', 'Passwords do not match.').equals(request.body.password);
 
-    validationErrors = request.validationErrors();
-    var registeredUser = models.Users.findOne({
+    validationErrors = (request.validationErrors());
+    var registeredUser = await models.Users.findOne({
         where: { username: username }
     });
 
@@ -83,7 +82,8 @@ router.post('/signup', (request, response) => {
             validationErrors = [{"message": "Username is already taken."}];
             
         }
-        response.render('signup', {errors: validationErrors});
+        return response.render('signup', {errors: validationErrors});
+        
     }
     else {
         models.Users.create({
@@ -93,14 +93,35 @@ router.post('/signup', (request, response) => {
         });
         request.session.authenticatedUser = true;
         request.session.username = request.body.username;
-        response.redirect('/gabble');
+        response.redirect('/gabble2');
     };
       
 });
 
+router.get('/homepage', (request, response) => {
+
+    var messages = models.Messages.findAll({
+        where: {
+            Messages: [models.Users]
+        }
+    })
+    response.render('homepage', {username: request.session.username, messages: messages});
+
+
+    // var messages = models.messages.find(
+    //   { include: [models.users] }
+    // );
+    // console.log(messages);
+    // response.render('homepage', {username: request.session.username, messages: messages});
+});
+
+router.get('/newgab', (request, response) => {
+    response.render('newgab');
+});
+
 router.get('/logout', (request, response) => {
   request.session.authenticatedUser = false;
-  response.redirect('/gabble');
+  response.redirect('/login');
 });
 
 
