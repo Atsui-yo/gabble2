@@ -39,7 +39,7 @@ router.post('/login', async (request, response) => {
     if (!registeredUser) {
 
          validationErrors.push({"message": "Your username and password is invalid."});
-         return response.response('/login', {errors: validationErrors});
+         return response.redirect('/login', {errors: validationErrors});
     } 
     else {
         request.session.authenticatedUser = true;
@@ -107,16 +107,6 @@ router.get('/homepage', (request, response) => {
     })
     response.render('homepage', {username: request.session.username, messages: messages});
 
-
-    // var messages = models.messages.find(
-    //   { include: [models.users] }
-    // );
-    // console.log(messages);
-    // response.render('homepage', {username: request.session.username, messages: messages});
-});
-
-router.get('/newgab', (request, response) => {
-    response.render('newgab');
 });
 
 router.get('/logout', (request, response) => {
