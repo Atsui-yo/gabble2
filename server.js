@@ -7,7 +7,6 @@ const session = require('express-session')
 const expressValidator = require('express-validator');
 
 const authenController = require('./controllers/authentication');
-// const homepageController = require('./controllers/homeController');
 
 const application = express();
 const port = 3000;
