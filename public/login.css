@@ -1,8 +1,4 @@
-body {
-    background-image: url("./images/gabble1.jpeg");
-    
-    
-}
+
 .navContainer {
     background-color: #0000A0;
     padding: 2%;
@@ -10,13 +6,12 @@ body {
 a {
     flex-basis: 20px;
     color: red;
-    text-shadow: 3px 3px 4px #00FFFF;
     font-size: 32px;
 }
 .login {
     color: #00FFFF;
-    text-shadow: 4px 4px 5px #ff0000;
     text-align: center;
     margin-top: 10%;
+    margin-bottom: 10%;
     font-size: 32px;
 }
