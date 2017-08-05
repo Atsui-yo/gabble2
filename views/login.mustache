@@ -7,34 +7,32 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
-    <link type="text/css" rel="stylesheet" href="./login.css"/>
+    <link type="text/css" rel="stylesheet" href="./styles.css"/>
 </head>
-<body class="cyan">
-    <nav>
+<body class="Log">
+    <nav class="red">
         <div class="nav-wrapper">
         <a href="#!" class="brand-logo">gABBLE</a>
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
-            <li><a href="">Create new gab</a></li>
             <li><a href="/login">Login</a></li>
             <li><a href="/signup">Sign up</a></li>
         </ul>
         <ul class="side-nav" id="mobile-demo">
-            <li><a href="">Create new gab</a></li>
             <li><a href="/login">Login</a></li>
             <li><a href="/signup">Sign up</a></li>
         </ul>
         </div>
     </nav>
 
-    <div class="container center login">
-        <h1>Login & Lets go!</h1>
+    <div class=" center container">
+        <h1 class="login">Login</h1>
 
         <div class="form container">
             <form action="/login" method="post">
                 <input type="text" name="username" placeholder="Username"><br><br>
                 <input type="password" name="password" placeholder="Password"><br><br>
-                <button class="btn">Log in</button>
+                <button class="btn red">Log in</button>
             </form>
         </div>
     </div>

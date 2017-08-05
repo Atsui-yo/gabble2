@@ -2,34 +2,52 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>gABBLE</title>
-    <link type="text/css" rel="stylesheet" href="./signup.css"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+    <link type="text/css" rel="stylesheet" href="./styles.css"/>
 </head>
-<body>
-    <div class="navContainer">
-        <a href="#">Gabble</a>
-        <a href="#">Create new gab</a>
-        <a href="/login">Login</a>
-        <a href="/signup">Sign up</a>
-    </div>
+<body class="Sign">
+    <nav class="red">
+        <div class="nav-wrapper">
+        <a href="#" class="brand-logo">gABBLE</a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+            <li><a href="/login">Login</a></li>
+            <li><a href="/signup">Sign up</a></li>
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+            <li><a href="/login">Login</a></li>
+            <li><a href="/signup">Sign up</a></li>
+        </ul>
+        </div>
+    </nav>
 
-    <div>
-        <h1>Sign Up</h1>
+    <div class="center container">
+        <h1 class="login">Sign Up</h1>
 
-        <div class="formContainer">
+        <div class="form container">
             <form action="/signup" method="post">
-                <label>Name</label><br>
-                <input type="username" name="name"><br><br>
-                <label>Username</label><br>
-                <input type="username" name="username"><br><br>
-                <label>Password</label><br>
-                <input type="password" name="password"><br><br>
-                <label>Confirm Password</label><br>
-                <input type="password" name="confirmPass"><br><br>
-                <input type="submit" value="signup">
+                <input class="left" type="text" name="name" id="name" placeholder="Name"><br><br>
+                <input type="text" name="username" id="username" placeholder="Username"><br><br>
+                <input type="password" name="password" id="password" placeholder="Password"><br><br>
+                <input type="password" name="confirmPass" id="c_pass" placeholder="Confirm Password"><br><br>
+                <button class="btn red">Sign-up</button>
                 
             </form>
         </div>
     </div>
+
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".button-collapse").sideNav();
+        });
+    </script>
 </body>
 </html>

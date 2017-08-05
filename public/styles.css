@@ -1,0 +1,24 @@
+
+.navContainer {
+    background-color: #0000A0;
+    padding: 2%;
+}
+a {
+    flex-basis: 20px;
+    color: red;
+    font-size: 32px;
+}
+.login {
+    color: #00FFFF;
+    text-align: center;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    font-size: 32px;
+}
+.Log {
+    background-image: url("https://s-media-cache-ak0.pinimg.com/736x/54/c3/0f/54c30f6809fa7806512b34b9013311c1--star-wars-art-character-art.jpg");
+    background-repeat: no-repeat;
+}
+.Sign {
+    background: url("http://orig02.deviantart.net/41ec/f/2013/312/7/b/day_354__gibble_gabble_by_cryptid_creations-d6tjgwm.png") no-repeat;
+}
