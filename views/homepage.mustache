@@ -2,16 +2,36 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>gABBLE</title>
-    <link type="text/css" rel="stylesheet" href="./home.css"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+    <link type="text/css" rel="stylesheet" href="./login.css"/>
 </head>
 <body>
-    <div class="navContainer">
+    <nav>
+        <div class="nav-wrapper">
+        <a href="/homepage" class="brand-logo">gABBLE</a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+            <li><a href="/newgab">Create new gab</a></li>
+            <li><a href="/homepage">Logged in as {{username}}</a></li>
+            <li><a href="/logout">Log out</a></li>
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+            <li><a href="/newgab">Create new gab</a></li>
+            <li><a href="/homepage">Logged in as {{username}}</a></li>
+            <li><a href="/logout">Log out</a></li>
+        </ul>
+        </div>
+    </nav>
+    <!--<div class="navContainer">
         <a href="/homepage">Gabble</a>
         <a href="/newgab">Create new gab</a>
         <a href="/homepage">Logged in as {{username}}</a>
         <a href="/logout">Log out</a>
-    </div>
+    </div>-->
 
     <div class="likesContainer">
         <h1>Likes</h1>
@@ -25,5 +45,15 @@
         {{/gabble2}}
         </div>
     </div>
+
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".button-collapse").sideNav();
+        });
+    </script>
 </body>
 </html>
